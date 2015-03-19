@@ -1,0 +1,19 @@
+# RVM settings
+#rvm --create use jruby-1.7.18@${PWD##/*/}
+rvm --create use @${PWD##/*/}
+
+# Jruby settings
+export JRUBY_OPTS=--2.0
+
+# IBM DMS/DB2 libs
+# export CLASSPATH=./lib/iText-2.0.8.jar:./lib/cmb-core-8.4.jar:./lib/cmb-ext-8.4.jar:./lib/cmb-log-8.4.jar:./lib/db2jcc.jar:./lib/dms_properties.jar;
+
+# Ruby oci8 settings
+export ORACLE_BASE=/usr/lib/oracle
+export ORACLE_HOME=$ORACLE_BASE/12.1/client64
+export PATH=$ORACLE_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$DYLD_LIBRARY_PATH
+export TNS_ADMIN=$ORACLE_BASE/admin/network
+
+# Oracle language settings
+export NLS_LANG=GERMAN_GERMANY.UTF8
