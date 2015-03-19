@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DeviseWithClient</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
+
+<%= Client.current_id %> |
+<% if user_signed_in? %>
+  <%= current_user.client.identifier %>
+  <%= current_user.email %>
+  <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+<% else %>
+  <%= link_to 'Sign in', new_user_session_path %>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
